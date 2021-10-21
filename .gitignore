@@ -2,3 +2,4 @@
 .idea/
 __pycache__/manage.cpython-39.pyc
 geckodriver.log
+api.zip
