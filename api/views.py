@@ -17,7 +17,7 @@ def efiscal(request):
     options.headless = True
     browser = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=options)
     browser.get(query)
-    delay = 20
+    delay = 120
     try:
         html_text = WebDriverWait(browser, delay).until(EC.presence_of_element_located((By.CLASS_NAME, 'panel-body')))
         nivf_index = html_text.text.find('NIVF')
@@ -26,4 +26,4 @@ def efiscal(request):
     except TimeoutException:
         print("Loading took too much time!")
 
-    return HttpResponse('', content_type='text/plain')
+    return HttpResponse('Kerkimi per nivf morri shume kohe. Provo perseri!', content_type='text/plain')
