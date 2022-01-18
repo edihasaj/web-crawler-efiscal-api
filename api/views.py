@@ -22,8 +22,11 @@ def efiscal(request):
         html_text = WebDriverWait(browser, delay).until(EC.presence_of_element_located((By.CLASS_NAME, 'panel-body')))
         nivf_index = html_text.text.find('NIVF')
         nivf_index = nivf_index + 5
+	browser.quit()
         return HttpResponse(html_text.text[nivf_index:nivf_index + 37], content_type='text/plain')
     except TimeoutException:
         print("Loading took too much time!")
+	browser.quit()
 
+    browser.quit()
     return HttpResponse('Kerkimi per nivf morri shume kohe. Provo perseri!', content_type='text/plain')
